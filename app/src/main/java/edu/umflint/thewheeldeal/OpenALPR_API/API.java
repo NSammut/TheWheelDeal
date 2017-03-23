@@ -14,13 +14,13 @@ import java.net.URL;
  * Created by NSammut on 3/22/2017.
  */
 
-public class API extends AsyncTask<String, Void, JSONObject> {
+public class API extends AsyncTask<String, Void, Vehicle> {
 
     @Override
-    protected JSONObject doInBackground(String... params) {
+    protected Vehicle doInBackground(String... params) {
 
         JSONObject jsonResponse = null;
-
+        Vehicle v = new Vehicle(new JSONObject());
         try {
 
             String url = "https://api.openalpr.com/v2/recognize_bytes?secret_key=sk_89170dc75d7a35cf2964ab81&recognize_vehicle=1&country=us&return_image=0&topn=1";
@@ -47,9 +47,10 @@ public class API extends AsyncTask<String, Void, JSONObject> {
 
             jsonResponse = new JSONObject(response);
 
+            v = new Vehicle(jsonResponse);
         } catch (Exception ex) {
             Log.e("API Call", ex.toString());
         }
-        return jsonResponse;
+        return v;
     }
 }
