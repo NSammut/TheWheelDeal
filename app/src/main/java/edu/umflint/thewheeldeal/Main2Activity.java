@@ -117,10 +117,10 @@ public class Main2Activity extends AppCompatActivity {
 
                     locations.add(new PictureDataPacket(new LatLng(latitude, longitude), vehicle.getMake(), vehicle.getModel(), vehicle.getColor()));}
                 catch (SecurityException e) { /*do error stuff*/ }
-
-
-
-
+                //***save locations arraylist to firebase***
+                //
+                //
+                //
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {

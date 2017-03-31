@@ -37,10 +37,19 @@ public class GalleryMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        //***retrieve locations arraylist from firebase***
+        //
+        //
+        //
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        // Add a marker for each picture taken and move the camera
+        for(int i = locations.size(); i > 0; i--) {
+            //LatLng sydney = new LatLng(-34, 151);
+            mMap.addMarker(new MarkerOptions().position(locations.get(i-1).getLocation()).title(
+                    locations.get(i-1).getColor() + " "
+                    + locations.get(i-1).getMake() + " "
+                    + locations.get(i-1).getModel()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(locations.get(i-1).getLocation()));
+        }
     }
 }

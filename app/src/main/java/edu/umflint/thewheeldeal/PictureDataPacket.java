@@ -20,6 +20,14 @@ public class PictureDataPacket {
         this.color = carColor;
     }
 
+    public void setLocation(LatLng GPS) {
+        this.location = GPS;
+    }
+
+    public LatLng getLocation() {
+        return location;
+    }
+
     public void setName(String make) {
         this.make = make;
     }
