@@ -2,12 +2,17 @@ package edu.umflint.thewheeldeal;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -16,11 +21,14 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
@@ -32,6 +40,7 @@ public class Main2Activity extends AppCompatActivity {
     String mCurrentPhotoPath;
     final static int CAMERA_REQUEST = 1888;
     String encodedImage = null;
+    ArrayList<PictureDataPacket> locations = new ArrayList<PictureDataPacket>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +107,19 @@ public class Main2Activity extends AppCompatActivity {
 
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
+
+
+                //save data to map gallery
+                try { LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+                    Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                    double longitude = location.getLongitude();
+                    double latitude = location.getLatitude();
+
+                    locations.add(new PictureDataPacket(new LatLng(latitude, longitude), vehicle.getMake(), vehicle.getModel(), vehicle.getColor()));}
+                catch (SecurityException e) { /*do error stuff*/ }
+
+
+
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
