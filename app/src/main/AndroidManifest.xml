@@ -32,7 +32,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main2Activity" />
-        <activity android:name=".leaderboards" />
         <activity android:name=".challenges" />
         <activity android:name=".profile" />
         <activity android:name=".trophies" />
@@ -60,7 +59,9 @@
 
         <activity
             android:name=".GalleryMap"
-            android:label="@string/title_activity_gallery_map"></activity>
+            android:label="@string/title_activity_gallery_map" />
+        <activity android:name=".LoginScreen" />
+        <activity android:name=".CreateAccountScreen"></activity>
     </application>
 
 </manifest>
