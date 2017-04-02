@@ -11,57 +11,43 @@
     tools:context="com.example.thewheeldeal.Main2Activity">
 
     <Button
-        android:text="Challenges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/button3"
+        android:layout_width="115dp"
+        android:layout_height="85dp"
         android:drawableTop="@drawable/ic_games"
+        android:text="Challenges"
         android:layout_below="@+id/button2"
         android:layout_alignStart="@+id/button2"
-        android:layout_marginTop="17dp"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_marginTop="13dp" />
 
     <Button
-        android:text="Profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableTop="@drawable/ic_profile"
-        android:layout_marginTop="14dp"
-        android:id="@+id/button4"
+        android:id="@+id/button5"
+        android:layout_width="115dp"
+        android:layout_height="85dp"
+        android:drawableTop="@drawable/ic_trophies"
+        android:text="Trophies"
         android:layout_below="@+id/button3"
         android:layout_alignStart="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
-
-    <Button
-        android:text="Leaderboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableTop="@drawable/ic_leaderboards"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Trophies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
-        android:drawableTop="@drawable/ic_trophies"
-        android:layout_marginTop="19dp"
-        android:id="@+id/button5"
-        android:layout_alignEnd="@+id/button4"
-        android:layout_alignStart="@+id/button4" />
+        android:layout_marginTop="22dp" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/button2"
-        android:layout_marginTop="13dp"
+        android:layout_width="115dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="37dp"
         android:drawableTop="@drawable/ic_camera"
         android:onClick="openCamera"
-        android:text="Camera" />
+        android:text="Camera"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="115dp"
+        android:layout_height="85dp"
+        android:layout_alignStart="@+id/button"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="13dp"
+        android:drawableTop="@drawable/gallery"
+        android:text="Gallery" />
 </RelativeLayout>
