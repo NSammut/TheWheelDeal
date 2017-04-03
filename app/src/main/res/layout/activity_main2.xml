@@ -11,30 +11,30 @@
     tools:context="com.example.thewheeldeal.Main2Activity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/challengesButton"
         android:layout_width="115dp"
         android:layout_height="85dp"
         android:drawableTop="@drawable/ic_games"
         android:text="Challenges"
-        android:layout_below="@+id/button2"
-        android:layout_alignStart="@+id/button2"
+        android:layout_below="@+id/galleryButton"
+        android:layout_alignStart="@+id/galleryButton"
         android:layout_marginTop="13dp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/trophiesButton"
         android:layout_width="115dp"
         android:layout_height="85dp"
+        android:layout_alignStart="@+id/challengesButton"
+        android:layout_below="@+id/challengesButton"
+        android:layout_marginTop="22dp"
         android:drawableTop="@drawable/ic_trophies"
-        android:text="Trophies"
-        android:layout_below="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_marginTop="22dp" />
+        android:text="Trophies" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="115dp"
         android:layout_height="85dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="66dp"
         android:drawableTop="@drawable/ic_camera"
         android:onClick="openCamera"
         android:text="Camera"
@@ -42,7 +42,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/galleryButton"
         android:layout_width="115dp"
         android:layout_height="85dp"
         android:layout_alignStart="@+id/button"
@@ -50,4 +50,12 @@
         android:layout_marginTop="13dp"
         android:drawableTop="@drawable/gallery"
         android:text="Gallery" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="Logout" />
 </RelativeLayout>

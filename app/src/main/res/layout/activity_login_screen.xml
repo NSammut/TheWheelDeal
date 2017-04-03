@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/usernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/imageView"
@@ -34,21 +34,21 @@
         android:text="Username" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/usernameText"
+        android:layout_below="@+id/usernameText"
         android:layout_marginTop="22dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/passwordText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:text="Login" />
@@ -57,8 +57,19 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button7"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:text="Don't Have An Account? Sign Up" />
+        android:layout_marginTop="29dp"
+        android:text="Don't Have An Account?  "
+        android:layout_below="@+id/loginButton"
+        android:layout_alignStart="@+id/passwordText" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:text="Sign Up"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 </RelativeLayout>

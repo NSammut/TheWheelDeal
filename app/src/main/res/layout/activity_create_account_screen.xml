@@ -12,12 +12,12 @@
         android:inputType="textPassword"
         android:text="Password"
         tools:text="Password"
-        android:layout_alignBottom="@+id/button6"
+        android:layout_alignBottom="@+id/signUpButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="87dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
