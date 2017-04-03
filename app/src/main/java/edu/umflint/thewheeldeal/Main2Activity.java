@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -46,6 +47,43 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        //taylors intents to start activities
+        Button logoutbtn = (Button)findViewById(R.id.logoutButton);
+        Button gallerybtn = (Button)findViewById(R.id.galleryButton);
+        Button challengesbtn = (Button)findViewById(R.id.challengesButton);
+        Button trophiesbtn = (Button)findViewById(R.id.trophiesButton);
+
+
+        logoutbtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                startActivity(new Intent(Main2Activity.this, LoginScreen.class));
+            }
+        });
+        gallerybtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                startActivity(new Intent(Main2Activity.this, GalleryMap.class));
+            }
+        });
+        challengesbtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                startActivity(new Intent(Main2Activity.this, challenges.class));
+            }
+        });
+        trophiesbtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                startActivity(new Intent(Main2Activity.this, trophies.class));
+            }
+        });
+
     }
 
     public void openCamera(View v)
