@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -41,12 +43,11 @@ public class Main2Activity extends AppCompatActivity {
         Button challengesbtn = (Button)findViewById(R.id.challengesButton);
         Button trophiesbtn = (Button)findViewById(R.id.trophiesButton);
 
-
-
         logoutbtn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(Main2Activity.this, LoginScreen.class));
             }
         });

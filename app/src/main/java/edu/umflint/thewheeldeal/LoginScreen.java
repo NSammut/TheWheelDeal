@@ -47,6 +47,7 @@ public class LoginScreen extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d("SignIn", "onAuthStateChanged:signed_in:" + user.getUid());
+                    startActivity(new Intent(LoginScreen.this, MainActivity.class));
                 } else {
                     // User is signed out
                     Log.d("SignIn", "onAuthStateChanged:signed_out");
@@ -56,7 +57,6 @@ public class LoginScreen extends AppCompatActivity {
 
         loginbtn.setOnClickListener(new View.OnClickListener()
         {
-            //stole lukes code
             public void onClick(View v)
             {
                 EditText email = (EditText) findViewById(R.id.emailText);
