@@ -18,16 +18,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.concurrent.ExecutionException;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 
 import edu.umflint.thewheeldeal.Classes.Task;
-import edu.umflint.thewheeldeal.Classes.Vehicle;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -69,14 +61,14 @@ public class Main2Activity extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(Main2Activity.this, challenges.class));
+                startActivity(new Intent(Main2Activity.this, Challenges.class));
             }
         });
         trophiesbtn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(Main2Activity.this, trophies.class));
+                startActivity(new Intent(Main2Activity.this, Trophies.class));
             }
         });
 

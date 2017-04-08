@@ -3,7 +3,7 @@ package edu.umflint.thewheeldeal;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class challenges extends AppCompatActivity {
+public class Challenges extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
