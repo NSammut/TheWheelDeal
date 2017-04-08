@@ -46,11 +46,9 @@ public class LoginScreen extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Log.d("SignIn", "onAuthStateChanged:signed_in:" + user.getUid());
                     startActivity(new Intent(LoginScreen.this, MainActivity.class));
                 } else {
                     // User is signed out
-                    Log.d("SignIn", "onAuthStateChanged:signed_out");
                 }
             }
         };
@@ -62,26 +60,25 @@ public class LoginScreen extends AppCompatActivity {
                 EditText email = (EditText) findViewById(R.id.emailText);
                 EditText password = (EditText) findViewById(R.id.passwordText);
 
-                mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
-                        .addOnCompleteListener(LoginScreen.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d("SignIn", "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    Log.w("SignIn", "signInWithEmail:failed", task.getException());
-                                    Toast.makeText(LoginScreen.this, R.string.auth_failed,
-                                            Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(LoginScreen.this, "Logging in!",
-                                            Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(LoginScreen.this, MainActivity.class));
+                if(!email.getText().toString().equals("") && !password.getText().toString().equals("")) {
+                    mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                            .addOnCompleteListener(LoginScreen.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                    // the auth state listener will be notified and logic to handle the
+                                    // signed in user can be handled in the listener.
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(LoginScreen.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(LoginScreen.this, "Logging in!", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(LoginScreen.this, MainActivity.class));
+                                    }
                                 }
-                            }
-                        });
+                            });
+                } else {
+                    Toast.makeText(LoginScreen.this, "Username or password is blank!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
