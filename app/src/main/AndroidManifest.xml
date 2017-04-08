@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".Main2Activity" />
-        <activity android:name=".Profile" />
+
 
         <provider
             android:name="android.support.v4.content.FileProvider"
