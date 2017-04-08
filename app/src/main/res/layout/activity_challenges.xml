@@ -1,13 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_challenges"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.thewheeldeal.challenges">
+    tools:context="edu.umflint.thewheeldeal.Challenges">
+
+    <TextView
+        android:id="@+id/silver_text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Analyze 50 Vehicles"
+        tools:layout_editor_absoluteX="221dp"
+        tools:layout_editor_absoluteY="260dp"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/bronze_text_description" />
+
+    <TextView
+        android:id="@+id/gold_text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Analyze 100 Vehicles"
+        tools:layout_editor_absoluteX="221dp"
+        tools:layout_editor_absoluteY="377dp"
+        android:layout_below="@+id/gold_text"
+        android:layout_alignStart="@+id/silver_text_description"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:id="@+id/Silver_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Silver"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="213dp"
+        android:layout_below="@+id/bronze_vehicle"
+        android:layout_alignEnd="@+id/Bronze_text" />
+
+    <TextView
+        android:id="@+id/gold_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Gold"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="325dp"
+        android:layout_alignTop="@+id/gold_vehicle"
+        android:layout_alignEnd="@+id/Silver_text" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Challenges"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bronze_vehicle"
+        android:layout_width="171dp"
+        android:layout_height="112dp"
+        app:srcCompat="@drawable/vehicle1"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="101dp"
+        android:layout_above="@+id/silver_vehicle"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/silver_vehicle"
+        android:layout_width="171dp"
+        android:layout_height="112dp"
+        app:srcCompat="@drawable/vehicle2"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="213dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/gold_vehicle"
+        android:layout_width="171dp"
+        android:layout_height="112dp"
+        app:srcCompat="@drawable/vehicle3"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="325dp"
+        android:layout_below="@+id/silver_vehicle"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/Bronze_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Bronze"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="247dp"
+        tools:layout_editor_absoluteY="101dp"
+        android:layout_alignTop="@+id/bronze_vehicle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="59dp" />
+
+    <TextView
+        android:id="@+id/bronze_text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Analyze 10 Vehicles"
+        tools:layout_editor_absoluteX="221dp"
+        tools:layout_editor_absoluteY="151dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="31dp"
+        android:layout_below="@+id/Bronze_text"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehicles Analyzed:"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="472dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/gold_vehicle"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="37dp" />
+
+    <TextView
+        android:id="@+id/vehicle_analyzed_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="265dp"
+        tools:layout_editor_absoluteY="472dp"
+        android:layout_alignBaseline="@+id/textView13"
+        android:layout_alignBottom="@+id/textView13"
+        android:layout_toStartOf="@+id/Bronze_text" />
 
 </RelativeLayout>
