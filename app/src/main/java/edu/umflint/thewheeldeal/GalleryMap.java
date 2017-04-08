@@ -9,10 +9,16 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class GalleryMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private DatabaseReference firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,7 @@ public class GalleryMap extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
 
@@ -38,9 +45,27 @@ public class GalleryMap extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         //***retrieve locations arraylist from firebase***
-        //
-        //
-        //
+        firebaseDatabase.child("savedcars").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                LatLng lastCar = new LatLng(70, 70);
+                //List<String> yourStringArray = dataSnapshot.getValue(t);
+                for(DataSnapshot child : snapshot.getChildren())
+                {
+                    PictureDataPacket temp = child.getValue(PictureDataPacket.class);
+                    lastCar = new LatLng(temp.getLat(), temp.getLong());
+                    mMap.addMarker(new MarkerOptions().position(lastCar).title(
+                            temp.getColor() + " " + temp.getMake() + " " + temp.getModel()+lastCar.latitude+ " " +lastCar.longitude));
+                }
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastCar, 13));
+
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                //Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 /*
         // Add a marker for each picture taken and move the camera
         for(int i = locations.size(); i > 0; i--) {

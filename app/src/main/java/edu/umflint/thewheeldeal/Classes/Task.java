@@ -6,11 +6,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONObject;
 
@@ -23,6 +32,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import edu.umflint.thewheeldeal.Main2Activity;
+import edu.umflint.thewheeldeal.PictureDataPacket;
 
 
 public class Task extends AsyncTask<String, Integer, String> {
@@ -30,10 +40,13 @@ public class Task extends AsyncTask<String, Integer, String> {
     Context context;
     ProgressBar progressBar;
     private Vehicle vehicle = new Vehicle(new JSONObject());
+    private DatabaseReference firebaseDatabase;
+    private LocationManager mLocationManager;
 
     public Task(Context mContext)
     {
         this.context = mContext;
+        mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
     }
 
     public void setProgressBar(ProgressBar progressBar) {
@@ -91,6 +104,7 @@ public class Task extends AsyncTask<String, Integer, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference();
         progressBar.setVisibility(View.GONE);
         AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
         if (vehicle.getColor() == null || vehicle.getMake() == null || vehicle.getModel() == null) {
@@ -121,6 +135,16 @@ public class Task extends AsyncTask<String, Integer, String> {
 
             AlertDialog alert11 = builder1.create();
             alert11.show();
+
+            try {
+                //LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                Location location = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                double longitude = location.getLongitude();
+                double latitude = location.getLatitude();
+
+                DatabaseReference newChildRef = firebaseDatabase.child("savedcars").push();
+                newChildRef.setValue(new PictureDataPacket(latitude, longitude, vehicle.getMake(), vehicle.getModel(), vehicle.getColor()));
+            } catch (SecurityException e) { /*do error stuff*/ }
             super.onPostExecute(result);
         }
     }

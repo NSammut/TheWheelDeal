@@ -7,25 +7,44 @@ import com.google.android.gms.maps.model.LatLng;
  */
 
 public class PictureDataPacket {
-    private LatLng location;
+    private double latitude;
+    private double longitude;
     private String make;
     private String model;
     private String color;
 
-    public PictureDataPacket(LatLng GPS, String carMake, String carModel, String carColor)
+    public PictureDataPacket()
     {
-        this.location = GPS;
+        latitude = 0;
+        longitude = 0;
+        make = "blank";
+        model = "blank";
+        color = "blank";
+    }
+
+    public PictureDataPacket(double lat, double longi, String carMake, String carModel, String carColor)
+    {
+        this.latitude = lat;
+        this.longitude = longi;
         this.make = carMake;
         this.model = carModel;
         this.color = carColor;
     }
 
-    public void setLocation(LatLng GPS) {
-        this.location = GPS;
+    public void setLat(double lat) {
+        this.latitude = lat;
     }
 
-    public LatLng getLocation() {
-        return location;
+    public double getLat() {
+        return latitude;
+    }
+
+    public void setLong(double longi) {
+        this.longitude = longi;
+    }
+
+    public double getLong() {
+        return longitude;
     }
 
     public void setName(String make) {

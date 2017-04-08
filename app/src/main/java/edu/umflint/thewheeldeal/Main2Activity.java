@@ -20,6 +20,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
 import edu.umflint.thewheeldeal.Classes.Task;
 import edu.umflint.thewheeldeal.Classes.Vehicle;
 
@@ -31,6 +37,7 @@ public class Main2Activity extends AppCompatActivity {
     ArrayList<PictureDataPacket> locations = new ArrayList<PictureDataPacket>();
     ProgressDialog progress;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +48,7 @@ public class Main2Activity extends AppCompatActivity {
         Button gallerybtn = (Button)findViewById(R.id.galleryButton);
         Button challengesbtn = (Button)findViewById(R.id.challengesButton);
         Button trophiesbtn = (Button)findViewById(R.id.trophiesButton);
+
 
 
         logoutbtn.setOnClickListener(new View.OnClickListener()
