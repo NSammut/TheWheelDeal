@@ -44,7 +44,7 @@ public class PictureDataPacket {
         return model;
     }
 
-    public void seColor(String color) {
+    public void setColor(String color) {
         this.color = color;
     }
 

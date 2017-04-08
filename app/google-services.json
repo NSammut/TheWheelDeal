@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "82487182056",
+    "firebase_url": "https://thewheeldeal-40e3e.firebaseio.com",
+    "project_id": "thewheeldeal-40e3e",
+    "storage_bucket": "thewheeldeal-40e3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82487182056:android:86e9cd4dd399fd4f",
+        "android_client_info": {
+          "package_name": "edu.umflint.thewheeldeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82487182056-hblpm87l1i0mrgfj3ll4ai9vops3n28c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.umflint.thewheeldeal",
+            "certificate_hash": "0252122ff1f92f8f1afd526a5ebd2926e8d295c9"
+          }
+        },
+        {
+          "client_id": "82487182056-l7hu2bkqa1fo8iga1ll5liqg3d8fh4hl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD7WEMce-TrnqkWoogV8qpKaEW48eK2fg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82487182056-l7hu2bkqa1fo8iga1ll5liqg3d8fh4hl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -41,7 +41,7 @@ public class GalleryMap extends FragmentActivity implements OnMapReadyCallback {
         //
         //
         //
-
+/*
         // Add a marker for each picture taken and move the camera
         for(int i = locations.size(); i > 0; i--) {
             //LatLng sydney = new LatLng(-34, 151);
@@ -50,6 +50,8 @@ public class GalleryMap extends FragmentActivity implements OnMapReadyCallback {
                     + locations.get(i-1).getMake() + " "
                     + locations.get(i-1).getModel()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(locations.get(i-1).getLocation()));
+
         }
+        */
     }
 }
