@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
@@ -142,8 +144,26 @@ public class Task extends AsyncTask<String, Integer, String> {
                 double longitude = location.getLongitude();
                 double latitude = location.getLatitude();
 
-                DatabaseReference newChildRef = firebaseDatabase.child("savedcars").push();
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference newChildRef = firebaseDatabase.child(user.getUid()).child("savedcars").push();
+                final DatabaseReference counterRef = firebaseDatabase.child(user.getUid()).child("vehicleCounter");
                 newChildRef.setValue(new PictureDataPacket(latitude, longitude, vehicle.getMake(), vehicle.getModel(), vehicle.getColor()));
+                //DatabaseReference firebaseDatabase = FirebaseDatabase.getInstance().getReference();
+
+                //update vehiclecounter from users stored info
+                counterRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        int vehiclecounter = snapshot.getValue(int.class);
+                        vehiclecounter++;
+                        counterRef.setValue(vehiclecounter);
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        //Log.w(TAG, "Failed to read value.", error.toException());
+                    }
+                });
             } catch (SecurityException e) { /*do error stuff*/ }
             super.onPostExecute(result);
         }
