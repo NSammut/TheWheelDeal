@@ -59,7 +59,7 @@ public class GalleryMap extends FragmentActivity implements OnMapReadyCallback {
                     PictureDataPacket temp = child.getValue(PictureDataPacket.class);
                     lastCar = new LatLng(temp.getLat(), temp.getLong());
                     mMap.addMarker(new MarkerOptions().position(lastCar).title(
-                            temp.getColor() + " " + temp.getMake() + " " + temp.getModel()+lastCar.latitude+ " " +lastCar.longitude));
+                            temp.getColor() + " " + temp.getMake() + " " + temp.getModel() + " Lat:" +lastCar.latitude+ " Long:" +lastCar.longitude));
                 }
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastCar, 13));
 
